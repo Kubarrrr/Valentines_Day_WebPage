@@ -1,0 +1,260 @@
+:root {
+    --size: 80px;
+    --duration: 1.5s;
+    --timing: ease;
+}
+
+@font-face {
+    font-family: ValentinesFont;
+    src: url(font/ValentineCute.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Pages */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url("img/bgImage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ValentinesFont;
+    overflow: hidden;
+    user-select: none;
+}
+
+main {
+    width: 60vw;
+    height: 75vh;
+    backdrop-filter: blur(15px);
+    border-radius: 60px;
+    background: rgba(202, 166, 166, 0.075);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    overflow: hidden;
+}
+
+.gif {
+    height: 40%;
+}
+
+.gif2 {
+    height: 30%;
+}
+
+.question {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.question2 {
+    font-size: 40px !important;
+}
+
+.question3 {
+    font-size: 35px !important;
+}
+
+.buttons {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+/* Loader */
+
+.loader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dd5152;
+}
+
+.loader img {
+    height: 70vh;
+}
+
+/* Buttons */
+.heart {
+  position: relative;
+  width: calc(var(--size)*3.5);
+  height: var(--size);
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 7px 20px hsla(0, 0%, 0%, 0.2);
+  animation: beat var(--duration) var(--timing) 0s infinite;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heart:before, .heart:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #E53038;
+    opacity: 0.4;
+    border-radius: inherit;
+}
+
+.heart:hover::after, .heart:hover::before{
+    background-color: #e25f5f;
+}
+
+.heart:before {
+    z-index: -2;
+    animation: beat-before var(--duration) var(--timing) 100ms infinite;
+}
+
+.heart:after {
+    z-index: -1;
+    animation: beat-after var(--duration) var(--timing) 200ms infinite;
+}
+
+
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes beat-before {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes beat-after {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+
+/* Responsiveness */
+
+@media only screen and (max-width: 1200px) {
+    :root {
+        --size: 60px;
+    }
+
+    main {
+        width: 80vw;
+    }
+
+    .buttons {
+        font-size: 10px;
+    }
+
+}
+
+@media only screen and (max-width: 992px) {
+    main {
+        height: 85vh;
+    }
+
+    .question {
+        font-size: 24px;
+    }
+
+    .buttons {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+
+    main {
+        width: 90vw;
+    }
+
+    .question {
+        font-size: 24px;
+    }
+
+    .buttons {
+        font-size: 16px;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    :root {
+        --size: 60px;
+    }
+
+    main {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .question {
+        font-size: 18px;
+    }
+
+    .buttons {
+        font-size: 12px;
+        gap: 20px;
+    }
+}
+
+@media only screen and (max-height: 650px) {
+    :root {
+        --size: 50px;
+    }
+
+    main {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .question {
+        font-size: 18px;
+    }
+
+    .buttons {
+        font-size: 10px;
+        gap: 20px;
+    }
+}
